@@ -1,65 +1,65 @@
-﻿
-public class Dolgozo
-{
-    private string? _nev;
-    private int _kor;
-    private decimal _fizetes;
+﻿using OOP.Model;
 
-    public string? Nev
+namespace OOP
+{
+    public class Program
     {
-        get { return _nev; }
-        set
+        Random random = new Random();
+
+        public Program()
         {
-            _nev = value;// obj.Nev = "Almáspite";
+            //Dolgozo Marci = new Dolgozo();
+            //Marci.Nev = "Marci";
+            //Marci.Kor = 17;            
+
+            //Dolgozo Rita = new Dolgozo("Rita",16);
+
+            
+
+            //Marci.FizetesEmeles(random.Next(10, 1000));
+            //Rita.FizetesEmeles(random.Next(10, 1000));
+
+            EvesMunkavegzes();
+
+        }
+
+        public void EvesMunkavegzes()
+        {
+            Dolgozo Rita = new Dolgozo("Rita", 16);
+            Dolgozo Marci = new Dolgozo("Marci", 17);
+
+            int honap = 12;
+
+
+            for (int i = 0; i < honap; i++)
+            {
+                int kocka = random.Next(1, 7);
+                if (kocka < 3)
+                {
+                    Rita.Cigiszunet();
+                    Marci.FizetesEmeles(100);
+                }
+                else if (kocka > 3)
+                {
+                    Marci.Cigiszunet();
+                    Rita.FizetesEmeles(100);
+                }
+                else {
+                    Marci.FizetesEmeles(100);
+                    Rita.FizetesEmeles(100);
+                }
+            }
+            
+            Console.WriteLine($"Rita fizetése: {Math.Round(Rita.Fizetes,2)}");
+            Console.WriteLine($"Marci fizetése: {Math.Round(Marci.Fizetes,2)}");
+
+        }
+        public static void Main(string[] args)
+        {
+            new Program();
+            Console.ReadKey();
         }
     }
-
-    public int Kor
-    {
-        get { return _kor; }
-        set { _kor = value; }
-    }
-
-    public decimal Fizetes
-    {
-        get { return _fizetes; }
-    }
-
-    #region Konstruktorok
-    public Dolgozo()
-    {
-        Console.WriteLine("Létrehoztam egy üres dolgozót!");
-    }
-
-    public Dolgozo(string? nev, int kor)
-    {
-        Nev = nev;
-        Kor = kor;
-        _fizetes = 100;
-    }
-    #endregion
-
-    public void Cigiszunet()
-    {
-        Console.WriteLine("Épp cigi szüneten vagyok! 10 perc pihi!");
-        _fizetes = _fizetes * (decimal)0.9;
-    }
-
 }
-
-public class Program
-{
-
-    public Program()
-    {
-        Dolgozo Marci = new Dolgozo();
-    }
-
-    public static void Main(string[] args) {
-        new Program();
-        Console.ReadKey();
-    }
-}
-
 
 
