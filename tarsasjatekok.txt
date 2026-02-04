@@ -1,0 +1,52 @@
+neve;megjelenés;ára;témája;korosztály
+Catan;1995-01-01;15000;településépítés, kereskedelem;10-99  
+Ticket to Ride;2004-04-02;12000;vasúti hálózatépítés;8-99  
+Pandemic;2008-03-01;13000;kooperatív, világjárvány;8-99  
+Carcassonne;2000-10-01;10000;városépítés, területfoglalás;7-99  
+Azul;2017-10-26;11000;csempeépítés, mintázat;8-99  
+Root;2018-08-01;20000;aszimmetrikus hadviselés, erdői frakciók;10-99  
+Terraforming Mars;2016-09-01;18000;űrkutatás, Mars terraformálása;14-99
+7 Wonders;2010-10-14;14000;civilizációépítés, kártyajáték;10-99  
+Scythe;2016-08-17;25000;alternatív történelem, stratégia;14-99  
+Wingspan;2019-03-08;16000;madármegfigyelés, motorépítés;10-99  
+The Quacks of Quedlinburg;2018-06-01;15000;tuningolt főzetkészítés, szerencse;10-99  
+Anomia;2009-01-01;4500;party, szókincs, gyors reagálás;10-99  
+Race for the Galaxy;2007-01-01;8000;űr, civilizációépítés;12-99  
+Pax Pamir;2019-09-01;20000;brit gyarmati politika, stratégia;13-99  
+Gloomhaven;2017-01-01;35000;kampány, kalandozás, dungeon crawler;14-99  
+Pandemic Legacy;2015-01-01;25000;kooperatív kampány, világjárvány;10-99  
+Codenames;2015-01-01;6000;szavak, kémkedés, party;10-99  
+Dominion;2008-01-01;10000;kártyaépítés, stratégia;13-99  
+Betrayal at House on the Hill;2004-01-01;9500;horror, rejtett áruló;16-99
+Blood Rage;2015-01-01;18000;vikings, harc, mitológia;14-99  
+Brass: Birmingham;2018-01-01;25350;ipari forradalom, stratégia;16-99
+Photosynthesis;2017-01-01;13000;növény növekedés, körforgás;8-99  
+Sagrada;2017-01-01;12000;üvegablak mozaik, mintázat;8-99  
+Clank! A Deck-Building Adventure;2016-01-01;11000;kaland, decképítés, dungeon;12-99  
+Just One;2018-01-01;5000;party, szólánc;8-99  
+Telestrations;2009-01-01;7000;rajzolás, party;8-99  
+Saboteur;2004-01-01;4000;kártya, áruló, akció;8-99  
+Hanabi;2010-01-01;4000;kooperatív, tűzijáték;8-99  
+Cascadia;2021-01-01;14000;naturális, területfoglalás;10-99  
+Trekking The National Parks;2020-01-01;11000;természet, kockajáték;10-99  
+Monster Hunter World: Wildspire Waste;2020-01-01;15000;vadászat, monstrum;16-99  
+Namiji;2023-01-01;10000;építés, japán tengerpart;10-99  
+Cyberpunk 2077: The Board Game;2025-06-01;31300;szak, narratív, sci‑fi;16-99
+Don’t Starve: The Board Game;2025-03-01;20000;túlélés, horror;14-99  
+Iliad;2025-05-01;15000;ókor, epikus, kétszemélyes játék;12-99  
+Horrified;2019-10-01;12000;kooperatív, szörnyvadászat;10-99  
+Charterstone;2017-10-01;18000;legacy, falualapítás;13-99  
+Dixit;2008-01-01;8000;álomszerű történetmesélés, party;8-99  
+Lost Cities;1999-01-01;6000;két személyes expedíciós kártyajáték;8-99  
+Sherlock Holmes Consulting Detective;1981-01-01;25000;nyomozás, narratív;12-99  
+Twilight Imperium;1997-01-01;50000;epikus űrstratégia, birodalmak;14-99  
+Arkham Horror;2005-01-01;20000;Lovecraft‑horror, kooperáció;12-99  
+Quirky Circuits;2019-10-31;8000;robotprogramozás, családi;8-12  
+Valley of the Kings;2019-10-04;9000;múmiavadászat, decképítés;10-99  
+PARKS;2019-10-02;10000;természet, séták, naplementék;8-99  
+Zombie Kids Evolution;2020-01-01;9000;legacy, zombis, gyerekeknek;6-12  
+Small World;2009-01-01;12000;fantasy birodalmak, területfoglalás;8-99  
+Everdell;2018-01-01;23000;erdői városépítés, figurák;10-99  
+Just One: Party;2021-01-01;7000;party, kreatív;10-99  
+Azul: Summer Pavilion;2020-01-01;12000;csempeépítés, mintázat folytatás;8-99  
+Ark Nova;2021-01-01;22000;zoo építés, stratégia;12-99

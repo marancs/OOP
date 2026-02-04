@@ -14,12 +14,10 @@ namespace OOP
 
             //Dolgozo Rita = new Dolgozo("Rita",16);
 
-            
-
             //Marci.FizetesEmeles(random.Next(10, 1000));
             //Rita.FizetesEmeles(random.Next(10, 1000));
 
-            EvesMunkavegzes();
+            TarsajatekProgram();
 
         }
 
@@ -54,6 +52,23 @@ namespace OOP
             Console.WriteLine($"Marci fizetése: {Math.Round(Marci.Fizetes,2)}");
 
         }
+        
+        public void TarsajatekProgram()
+        {
+            List<Tarsas> tarsasok = new List<Tarsas>();
+
+            //Skip(1) első sort kihagyja!
+            foreach(string sor in File.ReadAllLines("tarsasjatekok.txt").Skip(1))
+            {
+                //társasok listába adok egy új társast a sor alapján!
+                tarsasok.Add(new Tarsas(sor));
+            }
+
+            Console.WriteLine(tarsasok[0].Nev);
+
+
+        }
+
         public static void Main(string[] args)
         {
             new Program();
