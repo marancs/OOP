@@ -66,6 +66,40 @@ namespace OOP
 
             Console.WriteLine(tarsasok[0].Nev);
 
+            /*Írd ki azokat a társasokat amik 12 éves gyereknek ajánlható és az ára 45000 ft alatt van*/
+            tarsasok.Where(i => i.KorosztalybanVan(8) && i.Ar < 45000)
+                                   .Select(i => i.Nev).ToList()
+                                   .ForEach(Console.WriteLine);
+
+            //foreach(string sor in eredmeny)
+            //    Console.WriteLine(sor);
+
+            //linq
+            /*
+             lista.Where().Select().Orderby()
+
+              
+             */
+            (from v in tarsasok
+             where v.KorosztalybanVan(10) && v.Ar < 45000
+             select v.Nev).ToList().ForEach(Console.WriteLine);
+
+            /*Írd ki a legdrágább társas nevét és árát*/
+            var eredmeny = (from v in tarsasok
+                            orderby v.Ar descending
+                            select new {nev = v.Nev, ar = v.Ar })
+                            .First();
+
+            Console.WriteLine(eredmeny);
+            Console.WriteLine("Írd ki azokat a társasokat amiknek a témályában 'űr' szó szerepel");
+            (from v in tarsasok
+            where v.Temak.Exists(i=>i.Contains("űr"))
+            select v.Nev).ToList().ForEach (Console.WriteLine);
+
+
+
+
+
 
         }
 
