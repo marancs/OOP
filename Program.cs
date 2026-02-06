@@ -17,7 +17,9 @@ namespace OOP
             //Marci.FizetesEmeles(random.Next(10, 1000));
             //Rita.FizetesEmeles(random.Next(10, 1000));
 
-            TarsajatekProgram();
+            //TarsajatekProgram();
+
+            HaziFeladat();
 
         }
 
@@ -96,11 +98,74 @@ namespace OOP
             where v.Temak.Exists(i=>i.Contains("űr"))
             select v.Nev).ToList().ForEach (Console.WriteLine);
 
+            Console.WriteLine(tarsasok[0]);
+
+            Console.WriteLine(tarsasok[0].GetHashCode());
+            Console.WriteLine(tarsasok[1].GetHashCode());
+
+            Console.WriteLine(tarsasok[1].Equals(tarsasok[2]));
+
+        }
+
+        public void HaziFeladat()
+        {
+            List<Tarsas> tarsasok = new List<Tarsas>();
+
+            //Skip(1) első sort kihagyja!
+            foreach (string sor in File.ReadAllLines("tarsasjatekok.txt").Skip(1))
+            {
+                //társasok listába adok egy új társast a sor alapján!
+                tarsasok.Add(new Tarsas(sor));
+            }
+
+            Console.WriteLine("1. Olcsó társasjátékok");
+            (from x in tarsasok
+            where x.Ar < 5000
+            select x.Nev).ToList().ForEach(Console.WriteLine);
+
+            Console.WriteLine("2. Ár szerint rendezés");
+            (from x in tarsasok
+            orderby x.Ar descending
+            select $"{x.Nev}-{x.Ar}").ToList().ForEach(Console.WriteLine);
 
 
+            Console.WriteLine("3. 2015 után megjelent játékok");
+            (from x in tarsasok
+             where Convert.ToInt32(x.MegjelenesNapja.Split('-')[0]) > 2015
+             select x).ToList().ForEach(Console.WriteLine);
 
+            Console.WriteLine("4. „Party” témájú játékok száma");
+            //Számold meg, hány olyan társasjáték van,
+            //amelynek a témái között szerepel a „party” szó.
+            int db = (from x in tarsasok
+                      where x.Temak.Exists(i=>i.Contains("party"))
+                      select x).Count();
+            Console.WriteLine(db);
 
+            Console.WriteLine("5.Legdrágább társasjáték");
+            Console.WriteLine(tarsasok.OrderByDescending(i => i.Ar).First());
 
+            Console.WriteLine("6.Ajánlott 10 éveseknek");
+            tarsasok.Where(i => i.KorosztalybanVan(10)).Select(i => i.Nev).ToList().ForEach(Console.WriteLine);
+
+            Console.WriteLine("7.Összes különböző téma");
+
+            List<string> temak = tarsasok.SelectMany(i => i.Temak).Select(i => i.Trim()).Distinct().ToList();
+
+            Console.WriteLine("9. feladat:– Átlagár témánként");
+            var atlagArTemankent = tarsasok.Where(t => t.Temak != null)
+                                           .SelectMany(t => t.Temak.Select(tema => new {
+                                                Tema = tema.Trim(),
+                                                Ar = t.Ar
+                                            }))
+                                           .GroupBy(x => x.Tema)
+                                           .Select(g => new //Ez egy anonim típus
+                                            {
+                                                Tema = g.Key,
+                                                AtlagAr = g.Average(x => x.Ar)
+                                            })
+                                            .OrderBy(x => x.Tema)
+                                            .ToList();
         }
 
         public static void Main(string[] args)

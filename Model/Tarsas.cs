@@ -40,6 +40,29 @@ namespace OOP.Model
             Korosztaly = t[4].Trim();
         }
 
+        public override string ToString()
+        {
+            return $"Társas neve: {Nev}, ára: {Ar}";
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || obj is not Tarsas) return false;
+
+            if ((obj as Tarsas).Nev != null && (obj as Tarsas).Korosztaly != null)
+            {
+                return (obj as Tarsas).Nev.Equals(Nev) &&
+                       (obj as Tarsas).Korosztaly.Equals(Korosztaly);
+            }
+            else return false;
+            //return base.Equals(obj);
+        }
+
 
         public bool KorosztalybanVan(int kor)
         {
