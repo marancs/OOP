@@ -169,24 +169,32 @@ namespace OOP
             {
                 Console.WriteLine($"{item.korosztaly} : {item.darab} db");
             }
+           
+            var a = tarsasok.SelectMany(t=>t.Temak
+                                  .Select(i=> new
+                                                {
+                                                    Tema = i.Trim(),
+                                                    Ar = t.Ar
+                                                })
+                                )
+                    .GroupBy(g=> g.Tema)
+                    .Select(s=> new
+                    {
+                        Tema = s.Key,
+                        AtlagAr = s.Average(x=> x.Ar)
+
+                    }).OrderBy(x => x.Tema)
+                    .ToList();
+
+            Console.WriteLine("-------Próba -----------");
 
 
-/*
-            Console.WriteLine("9. feladat:– Átlagár témánként");
-            var atlagArTemankent = tarsasok.Where(t => t.Temak != null)
-                                           .SelectMany(t => t.Temak.Select(tema => new {
-                                                Tema = tema.Trim(),
-                                                Ar = t.Ar
-                                            }))
-                                           .GroupBy(x => x.Tema)
-                                           .Select(g => new //Ez egy anonim típus
-                                            {
-                                                Tema = g.Key,
-                                                AtlagAr = g.Average(x => x.Ar)
-                                            })
-                                            .OrderBy(x => x.Tema)
-                                            .ToList();
-*/
+            foreach (var i in a)
+                Console.WriteLine($"{i.Tema} : {i.AtlagAr} Ft");
+
+            Console.WriteLine("-------Próba -----------");
+
+
         }
 
         public static void Main(string[] args)
