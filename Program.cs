@@ -148,10 +148,30 @@ namespace OOP
             Console.WriteLine("6.Ajánlott 10 éveseknek");
             tarsasok.Where(i => i.KorosztalybanVan(10)).Select(i => i.Nev).ToList().ForEach(Console.WriteLine);
 
-            Console.WriteLine("7.Összes különböző téma");
+            Console.WriteLine("7.Összes különböző téma:");
 
             List<string> temak = tarsasok.SelectMany(i => i.Temak).Select(i => i.Trim()).Distinct().ToList();
 
+            temak.ForEach(Console.WriteLine);
+
+            /*
+             8. Korosztály szerinti csoportosítás
+             Csoportosítsd a társasjátékokat korosztály szerint, és írd ki a darabszámokat.*/
+
+            var eredmeny = tarsasok.GroupBy(i=>i.Korosztaly)
+                                   .Select(i => new { 
+                                        korosztaly = i.Key,
+                                        darab = i.Count()
+                                     })
+                                   .ToList();
+
+            foreach(var item in eredmeny)
+            {
+                Console.WriteLine($"{item.korosztaly} : {item.darab} db");
+            }
+
+
+/*
             Console.WriteLine("9. feladat:– Átlagár témánként");
             var atlagArTemankent = tarsasok.Where(t => t.Temak != null)
                                            .SelectMany(t => t.Temak.Select(tema => new {
@@ -166,6 +186,7 @@ namespace OOP
                                             })
                                             .OrderBy(x => x.Tema)
                                             .ToList();
+*/
         }
 
         public static void Main(string[] args)
