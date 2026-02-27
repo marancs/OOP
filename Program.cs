@@ -19,7 +19,15 @@ namespace OOP
 
             //TarsajatekProgram();
 
-            HaziFeladat();
+            //HaziFeladat();
+
+            _2024_3_agazati();
+        }
+
+        public void _2024_3_agazati()
+        {
+
+
 
         }
 
