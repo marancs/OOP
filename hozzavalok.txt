@@ -1,0 +1,13 @@
+alma;1;kg
+barnacukor;3;ek
+örölt fahéj;1;tk
+citromlé;3;tk
+sütőpor;1;csomag
+só;1;csipet
+liszt;50;dkg
+vaj;15;dkg
+tojás;2;db
+cukor;6;ek
+tejföl;4;ek
+zsemlemorzsa;5;dkg
+porcukor;20;dkg

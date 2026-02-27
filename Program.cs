@@ -26,6 +26,38 @@ namespace OOP
 
         public void _2024_3_agazati()
         {
+            //1. feladat
+            List<Hozzavalok> lista = new List<Hozzavalok>();
+
+            //Hozzavalok h = new Hozzavalok();
+
+            foreach (string sor in File.ReadAllLines("hozzavalok.txt"))            
+                lista.Add(new Hozzavalok(sor));
+
+
+            Console.WriteLine($"2. feladat: Összesen {lista.Count} db sort tartalmaz a fájl!");
+
+            Console.WriteLine("3. feladat:");
+            int? db = lista.Find(i => !string.IsNullOrEmpty(i.Nev) && i.Nev.Equals("tojás")).Db;
+
+            Console.WriteLine($"Tojások száma az almáspitében: {db} db");
+
+            Console.WriteLine("4. feladat:");
+            Console.Write("Kérek szépen egy hozzávalót:");
+            string? alma = Console.ReadLine();
+            Hozzavalok? h = lista.Find(i => i.Nev.Equals(alma));
+            if (h == null)
+                Console.WriteLine("Nem találtam ilyet!");
+            else
+                Console.WriteLine($"Megtaláltam, az almáspitében {h.Db} {h.Meegyseg} kell belőlle");
+
+            Console.WriteLine("5. feladat:");
+
+            foreach(var hozzavalo in lista)
+            {
+                hozzavalo.Eskuvo();
+                Console.WriteLine($"{hozzavalo.Db} {hozzavalo.Meegyseg} {hozzavalo.Nev}");
+            }
 
 
 
