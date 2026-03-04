@@ -35,6 +35,26 @@ namespace OOP
                 lista.Add(new Kiadas(sor));
             }
 
+            Console.WriteLine("2. feladat:");
+            Console.Write("Szerző: ");
+            string? szerzo = Console.ReadLine();
+
+            int db = lista.FindAll(i=>i.Leiras.ToLower().Contains(szerzo.ToLower())).Count;
+
+            Console.WriteLine($"{db} könyvkiadás");
+
+            Console.WriteLine("3. feladat");
+            int maxPeldany = lista.Max(i => i.Peldany);
+            int alkalom = lista.FindAll(i=>i.Peldany == maxPeldany).Count;
+            Console.WriteLine($"Legnagyobb példányszám: {maxPeldany}, előfordult {alkalom} alkalommal");
+            
+            Console.WriteLine("4. feladat");
+            Kiadas k = lista.Find(i => i.Peldany >= 40000 && i.Eredet.Equals("kf"));
+
+            if (k != null)
+                Console.WriteLine($"{k.KiadasEv}/{k.KiadasNegyedEv} {k.Leiras}");
+            else
+                Console.WriteLine("Nincs ilyen!");
 
 
         }
