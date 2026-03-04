@@ -1,4 +1,5 @@
 ﻿using OOP.Model;
+using System.IO;
 
 namespace OOP
 {
@@ -21,7 +22,21 @@ namespace OOP
 
             //HaziFeladat();
 
-            _2024_3_agazati();
+            //_2024_3_agazati();
+            EmeltDigi25_majus();
+        }
+
+        public void EmeltDigi25_majus()
+        {
+            List<Kiadas> lista = new List<Kiadas>();
+
+            foreach(string sor in File.ReadAllLines("Kiadas.txt"))
+            {
+                lista.Add(new Kiadas(sor));
+            }
+
+
+
         }
 
         public void _2024_3_agazati()
