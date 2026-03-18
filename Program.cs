@@ -23,9 +23,83 @@ namespace OOP
             //HaziFeladat();
 
             //_2024_3_agazati();
-            EmeltDigi25_majus();
+            EmeltDigi23_majus();
         }
 
+        public void EmeltDigi23_majus()
+        {
+            List<Tabor> lista = new List<Tabor>();
+
+            foreach(string sor in File.ReadAllLines("taborok.txt"))
+                lista.Add(new Tabor(sor));
+
+            Console.WriteLine("2. feladat");
+            Console.WriteLine($"Az adatsorok száma: {lista.Count}");
+            Console.WriteLine($"Az először rögzített tábor témája: {lista[0].Tema}");
+            Console.WriteLine($"Az utoljára rögzített tábor témája: {lista.Last().Tema}");
+
+            Console.WriteLine("3. feladat");
+            var eredmenyek = lista.FindAll(i => i.Tema.Equals("zenei")).Select(j => new
+                                                                                {
+                                                                                    honap = j.KezdHonap,
+                                                                                    nap = j.KezdNap
+                                                                                });
+
+            if (eredmenyek.Count() == 0)
+            {
+                Console.WriteLine("Nem volt zenei tábor.");
+            }
+            else {
+                foreach (var e in eredmenyek)
+                    Console.WriteLine($"Zenei tábor kezdődik {e.honap}. hó {e.nap}. napján.");
+            }
+
+            Console.WriteLine("4. feladat");
+
+            int maxDiak = lista.Max(i => i.Diakok.Length);
+
+            var k =  lista.FindAll(i => i.Diakok.Length == maxDiak).Select(j => new
+                                                                                {
+                                                                                    honap = j.KezdHonap,
+                                                                                    nap = j.KezdNap,
+                                                                                    tema = j.Tema
+                                                                                }
+                                                                            );
+
+            Console.WriteLine("Legnépszerűbbek:");
+            foreach(var elem in k)
+                Console.WriteLine($"{elem.honap} {elem.nap} {elem.tema}");
+
+            Console.WriteLine("6. feladat");
+            Console.Write("hó: ");
+            int.TryParse(Console.ReadLine(), out int ho);
+            Console.Write("nap: ");
+            int.TryParse(Console.ReadLine(), out int nap);
+
+            int db = lista.Count(i => BenneVan(i, ho, nap));
+
+            Console.WriteLine($"Ekkor éppen {db} tábor tart.");
+
+        }
+
+        public bool BenneVan(Tabor t, int honap, int nap)
+        {
+            DateTime TaborKezd = new DateTime(2026, t.KezdHonap, t.KezdNap);
+            DateTime TaborVege = new DateTime(2026, t.VegHonap, t.VegNap);
+            DateTime VizsgaltNap = new DateTime(2026, honap, nap);
+            return (TaborKezd <= VizsgaltNap && TaborVege >= VizsgaltNap);
+        }
+
+        public int Sorszam(int honap, int nap)
+        {
+            int nyar_honap = 6;
+            int nyar_nap = 16;
+            
+            DateTime kezdDatum = new DateTime(2026, nyar_honap, nyar_nap);
+            DateTime vegDatum = new DateTime(2026, honap, nap);
+
+            return (vegDatum - kezdDatum).Days;
+        }
         public void EmeltDigi25_majus()
         {
             List<Kiadas> lista = new List<Kiadas>();
@@ -55,6 +129,9 @@ namespace OOP
                 Console.WriteLine($"{k.KiadasEv}/{k.KiadasNegyedEv} {k.Leiras}");
             else
                 Console.WriteLine("Nincs ilyen!");
+
+          
+
 
 
         }
